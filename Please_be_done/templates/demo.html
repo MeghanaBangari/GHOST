@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hide In Image | GHOST</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/styleimage.css') }}" />
+    <script src="{{ url_for('static', filename='steganography.min.js') }}" ></script>
+</head>
+<body>
+    <header><div class="logo"><a href="main">GHOST<br>Make Data Invisible</a></div></header>
+
+    <div class="tab-form">
+        <div class="tab-header">
+            <div class="active">Encode</div>
+            <div>Decode</div>
+        </div>
+        <div class="tab-body">
+            
+            <div class="encode active">
+                <h2>Encode Text In Image</h2>
+                    <div class="form-input">
+                              <input
+                      type="file"
+                      name="pic"
+                      accept="image/*"
+                      onchange="readURL(this);"
+                    />
+                    <div class="form-input">
+                      <input id="text" type="text" autocomplete="off"/>
+                    </div>
+            
+                    <button onclick="hideText()">
+                      Hide Message Into Image
+                    </button>
+            
+                    </div>
+                    <div class="img-cont">
+                      <div  class="img1">
+                        <h5>Source Image</h5>
+                        <img id="image1" src="" alt="" />
+                      </div>
+                      <div class="">
+                        <h5>Message Encoded Image</h5>
+                        <img id="image2" src="" alt="" />
+                      </div>
+                    </div>
+</div>
+            <div class="decode">
+                <h2>Decode Text From Image</h2>
+                <div class="form-input">
+
+                    <input type="file" name="pic" accept="image/*" onchange="decode(this);" />
+                    <img class = "opa" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+                    <h5>Decoded Text:</h5>
+                    <h2 id="decoded"></h2>
+                  </div>
+
+            </div>
+        
+    </div>
+
+
+</div>
+
+
+    <footer>
+        <p class="copyrightText">&copy;2022 GHOST. Made with Love</p>
+    </footer>
+      <script src="{{ url_for('static', filename='hideImage.js') }}"></script>
+      <script src="{{ url_for('static', filename='hidetext.js') }}"></script>
+</body>
+</html>

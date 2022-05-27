@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hide In Image | GHOST</title>
+    <link rel="stylesheet" href="css/styleimage.css" />
+    <script src="js/steganography.min.js"></script>
+  </head>
+  <body>
+
+    <header><div class="logo"><a href="index.html">GHOST<br>Make Data Invisible</a></div></header>
+    <div class="cont">
+      <h2>Encode Text In Image</h2>
+        <div class="">
+                  <input
+          type="file"
+          name="pic"
+          accept="image/*"
+          onchange="readURL(this);"
+        />
+        <div class="ui input">
+          <input id="text" type="text" />
+        </div>
+
+        <button onclick="hideText()">
+          Hide Message Into Image
+        </button>
+
+        </div>
+        <div class="img-cont">
+          <div  class="img1">
+            <h5>Source Image</h5>
+
+            <img id="image1" src="" alt="" />
+          </div>
+
+
+          <div class="">
+            <h5>Message Encoded Image</h5>
+            <img id="image2" src="" alt="" />
+
+          </div>
+
+        </div>
+
+        
+    <div class="">
+      <h2>Decode Text From Image</h2>
+      <input type="file" name="pic" accept="image/*" onchange="decode(this);" />
+      <img class = "opa" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+      <h5>Decoded Text:</h5>
+      <h2 id="decoded"></h2>
+
+    </div>
+    </div>
+    <footer>
+      <p class="copyrightText">&copy;2022 GHOST. Made with Love</p>
+  </footer>
+    <script src="js/hideImage.js"></script>
+  </body>
+</html>

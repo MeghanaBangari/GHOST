@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide In Text | GHOST</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/styletext.css') }}">
+    
+</head>
+<body>
+    <header><div class="logo"><a href="main">GHOST<br>Make Data Invisible</a></div></header>
+    <div class="tab-form">
+        <div class="tab-header">
+            <div class="active">Encode</div>
+            <div>Decode</div>
+        </div>
+        <div class="tab-body">
+            <div class="encode active">
+                <h2>Encode Text In Text</h2>
+                <form action="hide" method="POST">
+                    <div class="form-input">
+                        <label>Cover Text</label>
+                        <input type="text" placeholder="Hii" name="cvr_msg" id="cvr_msg" autocomplete="off" required>
+                    </div>
+
+                    <div class="form-input">
+                        <label>Secret Text</label>
+                        <input type="text" placeholder="Hii" name="sec_msg" id="email" autocomplete="off" required>
+                    </div>
+
+                    <div class="form-input">
+                        <label>Password</label>
+                        <input type="password" placeholder="Enter a password" name="psw" id="psw" autocomplete="off" required>
+                    </div>
+
+                    <div class="form-input">
+                        <button type="submit">ENCODE</button>
+                    </div>
+
+                    {% if result %}
+                    <div class="form-input">
+                        <label><b>Copy This Stego Message To Use</b></label>
+                        <input type="text" value='{{ result }}'  name="emd_msg" id="emd_msg"  required>
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+            
+
+            <div class="decode">
+                <h2>Decode Text From Text</h2>
+                    <form action="/reveal" method="POST">
+                        <div class="form-input">
+                            <label>Encoded Text</label>
+                            <input type="text" placeholder="Enter encoded text" name="steg_msg" id="steg_msg" autocomplete="off" required>
+                        </div>
+
+                        <div class="form-input">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter Password" name="psw_rev" id="psw_rev" autocomplete="off" required>
+                        </div>
+
+                        <div class="form-input">
+                            <button type="submit">DECODE</button>
+                        </div>
+
+                        {% if result_reveal %}
+                        <div class="form-input">
+                            <label><b>This is your secret message. . .</b></label>
+                            <input type="text" value='{{result_reveal}}' name="ext_msg" id="ext_msg"  required>
+                        </div>
+                        {% endif %}
+                    </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p class="copyrightText">&copy;2022 GHOST. Made with Love</p>
+    </footer>
+    <script src="{{ url_for('static', filename='hidetext.js') }}"></script>
+</body>
+</html>
